@@ -1,0 +1,15 @@
+{
+  "date": "2024-02-02T15:20:53.955Z",
+  "games": [
+    {
+	  "home": {
+        "name": "lorem",
+        "score": 0
+      },
+	  "away": {
+        "name": "ipsum",
+        "score": 0
+      }
+	}
+  ]
+}
