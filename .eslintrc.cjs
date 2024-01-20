@@ -13,6 +13,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
     'no-param-reassign': 0,
+    'camelcase': 0, // CamelCase is both ugly and unreadable.
     quotes: ['error', 'single'],
     'no-console': [
       'warn',
