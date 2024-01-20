@@ -13,11 +13,11 @@ describe('validate', () => {
 		});
 
 		it('Missing games', () => {
-			expect(is_gameday({date: "2024-01-19T23:05:31"})).toEqual(false);
+			expect(is_gameday({date: '2024-01-19T23:05:31'})).toEqual(false);
 		});
 
 		it('Valid object', () => {
-			expect(is_gameday({date: "2024-01-19T23:05:31", games: []})).toEqual(true);
+			expect(is_gameday({date: '2024-01-19T23:05:31', games: []})).toEqual(true);
 		});
 	});
 
