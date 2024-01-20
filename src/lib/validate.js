@@ -50,6 +50,17 @@ function is_valid_score(score)
 	}
 
 /**
+ * Check if a given name is a valid team name
+ * @param {string} name Name to check
+ * @param {string[]} names Array of valid names
+ * @returns `true` if name is valid, `false` otherwise
+ */
+function is_valid_team_name(name, names)
+	{
+		return typeof name === 'string' && names.includes(name);
+	}
+
+/**
  * Check if an object is a valid team.
  * @param {Object} obj Object to check
  * @param {string[]} team_names Array of valid team names
@@ -59,7 +70,7 @@ function is_valid_team(obj, team_names)
 	{
 		return is_team(obj)
 			&& is_valid_score(obj.score)
-			&& team_names.includes(obj.name);
+			&& is_valid_team_name(obj.name, team_names);
 	}
 
 /**

@@ -52,6 +52,14 @@ describe('validate', () => {
 				['lorem'])).toEqual(false);
 		});
 
+		it('Non-string team name', () => {
+			expect(is_valid_game({
+				home: {name: 4, score: 0},
+				away: {name: 'lorem', score: 0},
+			},
+				[4, 'lorem'])).toEqual(false);
+		});
+
 		it('Negative score', () => {
 			expect(is_valid_game({
 				home: {name: 'lorem', score: -1},
