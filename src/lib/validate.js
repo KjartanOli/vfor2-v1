@@ -40,6 +40,16 @@ function is_team(obj)
 	}
 
 /**
+ * Check if a given number is a valid score.
+ * @param {number} score Number to check
+ * @returns `true` if score is valid, `false` otherwise
+ */
+function is_valid_score(score)
+	{
+		return Number.isInteger(score) && score >= 0;
+	}
+
+/**
  * Check if an object is a valid team.
  * @param {Object} obj Object to check
  * @param {string[]} team_names Array of valid team names
@@ -47,7 +57,9 @@ function is_team(obj)
  */
 function is_valid_team(obj, team_names)
 	{
-		return is_team(obj) && team_names.includes(obj.name)
+		return is_team(obj)
+			&& is_valid_score(obj.score)
+			&& team_names.includes(obj.name);
 	}
 
 /**

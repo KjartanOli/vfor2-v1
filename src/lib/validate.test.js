@@ -50,6 +50,30 @@ describe('validate', () => {
 				away: {name: 'ipsum', score: 0},
 			},
 				['lorem'])).toEqual(false);
-		})
+		});
+
+		it('Negative score', () => {
+			expect(is_valid_game({
+				home: {name: 'lorem', score: -1},
+				away: {name: 'ipsum', score: 0},
+			},
+				['lorem', 'ipsum'])).toEqual(false);
+		});
+
+		it('Floating point score', () => {
+			expect(is_valid_game({
+				home: {name: 'lorem', score: 0.5},
+				away: {name: 'ipsum', score: 0},
+			},
+				['lorem', 'ipsum'])).toEqual(false);
+		});
+
+		it('Non-numeric score', () => {
+			expect(is_valid_game({
+				home: {name: 'lorem', score: 'foo'},
+				away: {name: 'ipsum', score: 0},
+			},
+				['lorem', 'ipsum'])).toEqual(false);
+		});
 	});
 })
