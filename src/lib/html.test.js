@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { game_list, team_list } from './html';
+import { game_list, team_list, document } from './html';
 
 describe('html', () => {
 	describe.only('game_list', () => {
@@ -34,4 +34,10 @@ describe('html', () => {
 			])).toEqual('<table><thead><tr><th>Team</th><th>Score</th></tr></thead><tbody><tr id="lorem"><td>lorem</td><td>4</td></tr></tbody></table>');
 		})
 	});
+
+	describe.only('document', () => {
+		it('Basic document', () => {
+			expect(document('test', 'en', [], 'lorem ipsum')).toEqual('<html lang="en"><head><title>test</title></head><body>lorem ipsum</body></html>');
+		})
+	})
 });
