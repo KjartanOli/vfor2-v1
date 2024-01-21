@@ -32,7 +32,7 @@ async function parse_game_file(file_path, team_names)
 			return null;
 
 		return {
-			date: Date.parse(gameday.date),
+			date: new Date(gameday.date),
 			games: gameday.games.filter(game => is_valid_game(game, team_names))
 		};
 	}

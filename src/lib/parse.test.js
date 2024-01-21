@@ -11,7 +11,7 @@ describe('parse', () => {
 				teams: ['lorem', 'ipsum'],
 				gamedays: [
 					{
-						date: Date.parse('2024-02-02T15:20:53.955Z'),
+						date: new Date('2024-02-02T15:20:53.955Z'),
 						games: [
 							{
 								home: {
