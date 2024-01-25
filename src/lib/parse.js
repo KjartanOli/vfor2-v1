@@ -1,5 +1,5 @@
-import { direxists, readFile, readFilesFromDir } from './file';
-import { is_valid_game, is_gameday } from './validate';
+import { direxists, readFile, readFilesFromDir } from './file.js';
+import { is_valid_game, is_gameday } from './validate.js';
 
 async function parse_file(file_path)
 	{
