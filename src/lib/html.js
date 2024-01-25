@@ -31,7 +31,9 @@ function game_row(date, game) {
 }
 
 function game_day(day) {
-	return el('tbody', {}, ...day.games.map(game => game_row(day.date, game)))
+	return el('tbody', {
+		id: day.date.toISOString().substring(0, 'yyyy-mm-dd'.length)
+	}, ...day.games.map(game => game_row(day.date, game)));
 }
 
 export function game_list(gamedays) {
