@@ -15,25 +15,29 @@ export function document(title, language, head, ...body) {
 	);
 }
 
+function thead(...columns) {
+	return el('thead', {},
+		el('tr', {}, ...columns.map(column => el('th', {}, column)))
+	);
+}
+
+function game_row(date, game) {
+	return el('tr', {},
+		el('td', {}, date.toISOString().substring(0, 'yyyy-mm-dd'.length)),
+		el('td', {}, game.home.name),
+		el('td', {}, game.away.name),
+		el('td', {}, `${game.home.score}-${game.away.score}`)
+	);
+}
+
+function game_day(day) {
+	return el('tbody', {}, ...day.games.map(game => game_row(day.date, game)))
+}
+
 export function game_list(gamedays) {
 	return el('table', {},
-		el('thead', {},
-			el('tr', {},
-				el('th', {}, 'Date'),
-				el('th', {}, 'Home'),
-				el('th', {}, 'Away'),
-				el('th', {}, 'Score')
-			)
-		),
-		...gamedays.map(
-			day => el('tbody', {},
-				...day.games.map(
-					game => el('tr', {},
-						el('td', {}, day.date.toISOString().substring(0, 'yyyy-mm-dd'.length)),
-						el('td', {}, game.home.name),
-						el('td', {}, game.away.name),
-						el('td', {}, `${game.home.score}-${game.away.score}`)
-					))))
+		thead('Date', 'Home', 'Away', 'Score'),
+		...gamedays.map(game_day)
 	);
 }
 
