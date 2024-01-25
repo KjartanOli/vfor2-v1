@@ -4,8 +4,7 @@
  * @returns {string | null} Name of the winning team, if there is no
  * winner `null` is returned.
  */
-function game_winner(game)
-{
+function game_winner(game) {
 	const { home, away } = game;
 	if (home.score > away.score)
 		return home.name;
@@ -19,8 +18,7 @@ function game_winner(game)
  * @param {Game} game Game to check
  * @returns `true` if game ended in a draw, `false` otherwise
  */
-function is_draw(game)
-{
+function is_draw(game) {
 	const { home, away } = game;
 	return home.score === away.score;
 }
@@ -34,8 +32,7 @@ function is_draw(game)
  * @param {Game} game Game for which the points should be calculated
  * @returns {number} team's points for game.
  */
-function points_for_game(team, game)
-{
+function points_for_game(team, game) {
 	if (is_draw(game))
 		return 1;
 	if (team === game_winner(game))
@@ -50,8 +47,7 @@ function points_for_game(team, game)
  * @param {Game} game Game to check
  * @returns `true` if team played in game, `false` otherwise.
  */
-function played_in_game_p(team, game)
-{
+function played_in_game_p(team, game) {
 	const { home, away } = game;
 	return home.name === team || away.name === team;
 }
@@ -62,11 +58,10 @@ function played_in_game_p(team, game)
  * @param {string} team Team whose point total should be calculated
  * @param {Game[]} games The games to calculate points from
  */
-function points(team, games)
-{
+function points(team, games) {
 	return games.filter(game => played_in_game_p(team, game))
-				.map(game => points_for_game(team, game))
-				.reduce((p, acc) => p + acc, 0);
+		.map(game => points_for_game(team, game))
+		.reduce((p, acc) => p + acc, 0);
 }
 
 /**
@@ -76,10 +71,9 @@ function points(team, games)
  * @returns {TeamStatus[]} Array of teams and their points, ordered by
  * position in the leauge
  */
-export function league_status(teams, games)
-{
+export function league_status(teams, games) {
 	return teams.map(team => ({
-			name: team,
-			points: points(team, games)
-		})).sort((a, b) => b.points - a.points);
+		name: team,
+		points: points(team, games)
+	})).sort((a, b) => b.points - a.points);
 }
