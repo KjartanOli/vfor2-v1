@@ -77,3 +77,12 @@ export function league_status(teams, games) {
 		points: points(team, games)
 	})).sort((a, b) => b.points - a.points);
 }
+
+/**
+ * Get all days in a set of gamedays
+ * @param {GameDay[]} gamedays Gamedays to retreive games from
+ * @returns {Game[]} All games played on gamedays
+ */
+export function league_games(gamedays) {
+	return gamedays.reduce((acc, day) => acc.concat(day.games), []);
+}
