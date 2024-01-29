@@ -15,10 +15,9 @@ export function document(title, language, head, ...body) {
 	);
 }
 
-function th(content, attributes = {})
-	{
-		return el('th', attributes, content);
-	}
+function th(content, attributes = {}) {
+	return el('th', attributes, content);
+}
 
 function thead(...columns) {
 	return el('thead', {},
@@ -40,7 +39,7 @@ function game_day(day) {
 	},
 		el('tr', {},
 			th(day.date.toISOString().substring(0, 'yyyy-mm-dd'.length),
-				{colspan: 3}
+				{ colspan: 3 }
 			)
 		),
 		...day.games.map(game_row));
