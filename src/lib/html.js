@@ -30,6 +30,13 @@ function link(href, text, attributes = {}) {
 }
 
 function list(attributes, ...items) {
+	({ attributes, items } = (typeof attributes !== 'string')
+		? { attributes, items }
+		: {
+			attributes: {},
+			items: [attributes, ...items]
+		});
+
 	return el('ul', attributes, ...items.map(item => el('li', {}, item)));
 }
 
