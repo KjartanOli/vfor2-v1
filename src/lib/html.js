@@ -25,6 +25,14 @@ function thead(...columns) {
 	);
 }
 
+function link(href, text, attributes = {}) {
+	return el('a', { href, ...attributes }, text);
+}
+
+function list(attributes, ...items) {
+	return el('ul', attributes, ...items.map(item => el('li', {}, item)));
+}
+
 function game_row(game) {
 	return el('tr', {},
 		el('td', {}, game.home.name),
@@ -62,4 +70,21 @@ export function team_list(teams) {
 			))
 		)
 	);
+}
+
+export function index_template() {
+	return document('Ball League', 'en', [],
+		list(
+			link('leikir.html', 'Games'),
+			link('stada.html', 'Standings')
+		)
+	);
+}
+
+export function standings_template(standings) {
+	return document('Standings', 'en', [], team_list(standings));
+}
+
+export function game_template(gamedays) {
+	return document('Games', 'en', [], game_list(gamedays));
 }

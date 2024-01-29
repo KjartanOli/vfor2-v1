@@ -1,7 +1,12 @@
 import { describe, expect, it } from '@jest/globals';
-import { game_list, team_list, document } from './html';
+import { game_list, team_list, document, index_template } from './html';
 
 describe('html', () => {
+	describe('index_template', () => {
+		it('Only', () => {
+			expect(index_template()).toEqual('<html lang="en"><head><title>Ball League</title></head><body><ul><li><a href="leikir.html">Games</a></li><li><a href="stada.html">Standings</a></li></ul></body></html>');
+		})
+	});
 	describe.only('game_list', () => {
 		it('Single game', () => {
 			expect(game_list([
