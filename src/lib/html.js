@@ -8,7 +8,7 @@ function el(element, attributes, ...children) {
 	return `<${element}${attrs.length > 0 ? ' ' : ''}${attrs.join(' ')}>${children.join('')}</${element}>`
 }
 
-export function document(title, language, head, ...body) {
+function document(title, language, head, ...body) {
 	return el('html', { lang: language },
 		el('head', {}, ...[el('title', {}, title), ...head]),
 		el('body', {}, ...body)
