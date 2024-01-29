@@ -79,8 +79,12 @@ function team_list(teams) {
 	);
 }
 
+function template(title, ...body) {
+	return document(title, 'en', [], ...body);
+}
+
 export function index_template() {
-	return document('Ball League', 'en', [],
+	return template('Ball League',
 		list(
 			link('leikir.html', 'Games'),
 			link('stada.html', 'Standings')
@@ -89,9 +93,9 @@ export function index_template() {
 }
 
 export function standings_template(standings) {
-	return document('Standings', 'en', [], team_list(standings));
+	return template('Standings', team_list(standings));
 }
 
 export function game_template(gamedays) {
-	return document('Games', 'en', [], game_list(gamedays));
+	return template('Games', game_list(gamedays));
 }
