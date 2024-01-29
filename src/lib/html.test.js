@@ -20,7 +20,7 @@ describe('html', () => {
 						}
 					]
 				}
-			])).toEqual('<table><thead><tr><th>Date</th><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><td>2024-02-02</td><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody></table>');
+			])).toEqual('<table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody></table>');
 		});
 
 		it('Multiple days', () => {
@@ -55,7 +55,7 @@ describe('html', () => {
 						}
 					]
 				}
-			])).toEqual('<table><thead><tr><th>Date</th><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><td>2024-02-02</td><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody><tbody id="2024-02-03"><tr><td>2024-02-03</td><td>dolor</td><td>set</td><td>3-2</td></tr></tbody></table>');
+			])).toEqual('<table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody><tbody id="2024-02-03"><tr><th colspan="3">2024-02-03</th></tr><tr><td>dolor</td><td>set</td><td>3-2</td></tr></tbody></table>');
 		});
 	});
 
@@ -64,7 +64,7 @@ describe('html', () => {
 			expect(team_list([
 				{
 					name: 'lorem',
-					score: 4
+					points: 4
 				}
 			])).toEqual('<table><thead><tr><th>Team</th><th>Score</th></tr></thead><tbody><tr id="lorem"><td>lorem</td><td>4</td></tr></tbody></table>');
 		})
