@@ -60,14 +60,14 @@ function game_day(day) {
 		...day.games.map(game_row));
 }
 
-export function game_list(gamedays) {
+function game_list(gamedays) {
 	return el('table', {},
 		thead(th('Home'), th('Away'), th('Score')),
 		...gamedays.map(game_day)
 	);
 }
 
-export function team_list(teams) {
+function team_list(teams) {
 	return el('table', {},
 		thead(th('Team'), th('Score')),
 		el('tbody', {},
