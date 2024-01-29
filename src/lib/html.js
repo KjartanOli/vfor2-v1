@@ -29,6 +29,13 @@ function link(href, text, attributes = {}) {
 	return el('a', { href, ...attributes }, text);
 }
 
+function stylesheet(path) {
+	return el('link', {
+		href: path,
+		rel: 'stylesheet'
+	})
+}
+
 function list(attributes, ...items) {
 	({ attributes, items } = (typeof attributes !== 'string')
 		? { attributes, items }
@@ -80,7 +87,9 @@ function team_list(teams) {
 }
 
 function template(title, ...body) {
-	return document(title, 'en', [], ...body);
+	return document(title, 'en', [
+		stylesheet('./public/styles.css')
+	], ...body);
 }
 
 export function index_template() {
