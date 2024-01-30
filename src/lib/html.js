@@ -10,7 +10,11 @@ function el(element, attributes, ...children) {
 
 function document(title, language, head, ...body) {
 	return el('html', { lang: language },
-		el('head', {}, ...[el('title', {}, title), ...head]),
+		el('head', {}, ...[
+			el('title', {}, title),
+			el('meta', { charset: 'UTF-8' }),
+			, ...head
+		]),
 		el('body', {}, ...body)
 	);
 }
