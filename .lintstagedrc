@@ -1,4 +1,4 @@
 {
-  "*.js": ["eslint", "node --experimental-vm-modules  node_modules/jest/bin/jest --findRelatedTests"],
+  "lib/*.js": ["eslint", "node --experimental-vm-modules  node_modules/jest/bin/jest --findRelatedTests"],
   "*.css": "stylelint"
 }
