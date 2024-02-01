@@ -13,7 +13,7 @@ function document(title, language, head, ...body) {
 		el('head', {}, ...[
 			el('title', {}, title),
 			el('meta', { charset: 'UTF-8' }),
-			, ...head
+			 ...head
 		]),
 		el('body', {}, ...body)
 	);
