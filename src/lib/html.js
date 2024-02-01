@@ -55,7 +55,7 @@ function game_row(game) {
 	return el('tr', {},
 		el('td', {}, game.home.name),
 		el('td', {}, game.away.name),
-		el('td', {}, `${game.home.score}-${game.away.score}`)
+		el('td', { class: 'centered' }, `${game.home.score}-${game.away.score}`)
 	);
 }
 
@@ -84,7 +84,7 @@ function team_list(teams) {
 		el('tbody', {},
 			...teams.map(team => el('tr', { id: team.name },
 				el('td', {}, team.name),
-				el('td', {}, team.points)
+				el('td', { class: 'centered' }, team.points)
 			))
 		)
 	);

@@ -15,7 +15,7 @@ describe('html', () => {
 					name: 'lorem',
 					points: 4
 				}
-			])).toEqual('<html lang="en"><head><title>Standings</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Team</th><th>Score</th></tr></thead><tbody><tr id="lorem"><td>lorem</td><td>4</td></tr></tbody></table></body></html>');
+			])).toEqual('<html lang="en"><head><title>Standings</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Team</th><th>Score</th></tr></thead><tbody><tr id="lorem"><td>lorem</td><td class="centered">4</td></tr></tbody></table></body></html>');
 		});
 	});
 
@@ -37,7 +37,7 @@ describe('html', () => {
 						}
 					]
 				}
-			])).toEqual('<html lang="en"><head><title>Games</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody></table></body></html>');
+			])).toEqual('<html lang="en"><head><title>Games</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td class="centered">3-2</td></tr></tbody></table></body></html>');
 		});
 
 		it('Multiple days', () => {
@@ -72,7 +72,7 @@ describe('html', () => {
 						}
 					]
 				}
-			])).toEqual('<html lang="en"><head><title>Games</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td>3-2</td></tr></tbody><tbody id="2024-02-03"><tr><th colspan="3">2024-02-03</th></tr><tr><td>dolor</td><td>set</td><td>3-2</td></tr></tbody></table></body></html>');
+			])).toEqual('<html lang="en"><head><title>Games</title><meta charset="UTF-8"></meta><link href="./public/styles.css" rel="stylesheet"></link></head><body><table><thead><tr><th>Home</th><th>Away</th><th>Score</th></tr></thead><tbody id="2024-02-02"><tr><th colspan="3">2024-02-02</th></tr><tr><td>lorem</td><td>ipsum</td><td class="centered">3-2</td></tr></tbody><tbody id="2024-02-03"><tr><th colspan="3">2024-02-03</th></tr><tr><td>dolor</td><td>set</td><td class="centered">3-2</td></tr></tbody></table></body></html>');
 		});
 	});
 });
